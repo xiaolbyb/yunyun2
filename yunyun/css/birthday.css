@@ -1,0 +1,69 @@
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.ssssssss {
+  position: fixed;
+  top: 150%;
+}
+.app {
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/bg.jpg") no-repeat left/100% 100%;
+  animation: scaleAni2 3s forwards linear;
+}
+.app2 {
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/bg2.png") no-repeat left/100% 100%;
+}
+.app3 {
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/b/bg6.jpg") no-repeat left/100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: gold;
+}
+.content p {
+  white-space: nowrap;
+  line-height: 7vh;
+}
+.title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8vh;
+  animation: scaleAni 1s ease-in-out infinite;
+  background: linear-gradient(90deg, #ead39b 0%, #c49452 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes scaleAni {
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+@keyframes scaleAni2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+[v-cloak] {
+  display: none;
+}

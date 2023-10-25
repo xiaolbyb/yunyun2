@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>祝云云生日快乐</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/birthday.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="ssssssss">
+      <audio id="bgmMusic" controls="controls" autoplay>
+        <source src="./img/xinghe.mp3" type="audio/mpeg" />
+      </audio>
+
+    </div>
+    <div class="app" v-show="bgshow">
+      <div class="content">
+        <p> {{contents}}</p>
+        <p> {{contents1}}</p>
+        <p> {{contents2}}</p>
+        <p style="padding-left: 22vw;"> {{contents3}}</p>
+      </div>
+    </div>
+    <div class="app2" v-show="!bgshow">
+    </div>
+    <div class="app3" v-show="bgshow2">
+    </div>
+    <div class="title" v-cloak>
+      <span ref="name">{{name.substring(0,1)}}</span>
+    </div>
+  </div>
+
+  <script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/common.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/axios.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        name: '云云生日快乐',
+        content: '祝云云开开心心，心想事成!',
+        content1: '祝云云愿愿顺心，事事如意!',
+        content2: '祝云云甜甜蜜蜜，马上暴富!',
+        content3: '----爱你的斌!',
+        contents: '',
+        contents1: '',
+        contents2: '',
+        contents3: '',
+        bgshow: false,
+        num: 1,
+        bgshow2: false,
+      },
+      created() {
+        this.init()
+      },
+      mounted() {},
+      methods: {
+        init() {
+          let time = setInterval(() => {
+            if (this.name == "") {
+              clearInterval(time)
+              this.bgshow = true
+              this.init2()
+            }
+            this.name = this.name.replace(this.name.substring(0, 1), "")
+            this.num++;
+          }, 1000)
+        },
+        init2() {
+          let time = setInterval(() => {
+            if (this.content == "") {
+              clearInterval(time)
+              let time2 = setInterval(() => {
+                if (this.content1 == "") {
+                  clearInterval(time2)
+                  let time3 = setInterval(() => {
+                    if (this.content2 == "") {
+                      clearInterval(time3)
+                      let time4 = setInterval(() => {
+                        if (this.content3 == "") {
+                          clearInterval(time4)
+                        }
+                        this.contents3 += this.content3.substring(0, 1)
+                        this.content3 = this.content3.replace(this.content3.substring(0, 1), "")
+                        if (!this.content3) {
+                          this.bgshow2 = true
+                        }
+                      }, 200)
+                    }
+                    this.contents2 += this.content2.substring(0, 1)
+                    this.content2 = this.content2.replace(this.content2.substring(0, 1), "")
+                  }, 200)
+                }
+                this.contents1 += this.content1.substring(0, 1)
+                this.content1 = this.content1.replace(this.content1.substring(0, 1), "")
+              }, 200)
+            }
+            this.contents += this.content.substring(0, 1)
+            this.content = this.content.replace(this.content.substring(0, 1), "")
+          }, 200)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
